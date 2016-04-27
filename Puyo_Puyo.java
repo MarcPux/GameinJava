@@ -77,7 +77,7 @@ class GamePane extends JComponent implements ActionListener
 {
 	static int rows,cols;	
 	static int scr[][];			//scr or(screen) array holds the information about puyos to display
-	Node tetris;				//Formation of Tetris is checked using this object
+	NodeMod tetris;				//Formation of Tetris is checked using this object
 	Timer timer,timer1,timer2,anim_timer;	//different timers used for animation of puyos
 	Image img[]=new Image[4];	//holds 4 puyo images
 	Image fpipe,bpipe;			//holds the front and back part of pipe image
@@ -217,6 +217,271 @@ class GamePane extends JComponent implements ActionListener
 		});
 		setFocusable(true);			//to set the keyboard focus on this game pane
 	}
+
+	public static int getRows() {
+		return rows;
+	}
+
+	public static void setRows(int rows) {
+		GamePane.rows = rows;
+	}
+
+	public static int getCols() {
+		return cols;
+	}
+
+	public static void setCols(int cols) {
+		GamePane.cols = cols;
+	}
+
+	public static int[][] getScr() {
+		return scr;
+	}
+
+	public static void setScr(int[][] scr) {
+		GamePane.scr = scr;
+	}
+
+	public NodeMod getTetris() {
+		return tetris;
+	}
+
+	public void setTetris(NodeMod tetris) {
+		this.tetris = tetris;
+	}
+
+	public Timer getTimer() {
+		return timer;
+	}
+
+	public void setTimer(Timer timer) {
+		this.timer = timer;
+	}
+
+	public Timer getTimer1() {
+		return timer1;
+	}
+
+	public void setTimer1(Timer timer1) {
+		this.timer1 = timer1;
+	}
+
+	public Timer getTimer2() {
+		return timer2;
+	}
+
+	public void setTimer2(Timer timer2) {
+		this.timer2 = timer2;
+	}
+
+	public Timer getAnim_timer() {
+		return anim_timer;
+	}
+
+	public void setAnim_timer(Timer anim_timer) {
+		this.anim_timer = anim_timer;
+	}
+
+	public Image[] getImg() {
+		return img;
+	}
+
+	public void setImg(Image[] img) {
+		this.img = img;
+	}
+
+	public Image getFpipe() {
+		return fpipe;
+	}
+
+	public void setFpipe(Image fpipe) {
+		this.fpipe = fpipe;
+	}
+
+	public Image getBpipe() {
+		return bpipe;
+	}
+
+	public void setBpipe(Image bpipe) {
+		this.bpipe = bpipe;
+	}
+
+	public String[] getFiles() {
+		return files;
+	}
+
+	public void setFiles(String[] files) {
+		this.files = files;
+	}
+
+	public AudioClip[] getClips() {
+		return clips;
+	}
+
+	public void setClips(AudioClip[] clips) {
+		this.clips = clips;
+	}
+
+	public Toolkit getTk() {
+		return tk;
+	}
+
+	public void setTk(Toolkit tk) {
+		this.tk = tk;
+	}
+
+	public Random getRand() {
+		return rand;
+	}
+
+	public void setRand(Random rand) {
+		this.rand = rand;
+	}
+
+	public int getRot() {
+		return rot;
+	}
+
+	public void setRot(int rot) {
+		this.rot = rot;
+	}
+
+	public int getLen() {
+		return len;
+	}
+
+	public void setLen(int len) {
+		this.len = len;
+	}
+
+	public boolean isReached() {
+		return reached;
+	}
+
+	public void setReached(boolean reached) {
+		this.reached = reached;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public boolean isStarted() {
+		return started;
+	}
+
+	public void setStarted(boolean started) {
+		this.started = started;
+	}
+
+	public boolean isGameOver() {
+		return gameOver;
+	}
+
+	public void setGameOver(boolean gameOver) {
+		this.gameOver = gameOver;
+	}
+
+	public boolean isPaused() {
+		return paused;
+	}
+
+	public void setPaused(boolean paused) {
+		this.paused = paused;
+	}
+
+	public int getA() {
+		return a;
+	}
+
+	public void setA(int a) {
+		this.a = a;
+	}
+
+	public int getB() {
+		return b;
+	}
+
+	public void setB(int b) {
+		this.b = b;
+	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
+
+	public int getPieces() {
+		return pieces;
+	}
+
+	public void setPieces(int pieces) {
+		this.pieces = pieces;
+	}
+
+	public int getRemoved_puyos() {
+		return removed_puyos;
+	}
+
+	public void setRemoved_puyos(int removed_puyos) {
+		this.removed_puyos = removed_puyos;
+	}
+
+	public int getMinscore() {
+		return minscore;
+	}
+
+	public void setMinscore(int minscore) {
+		this.minscore = minscore;
+	}
+
+	public int getAnim() {
+		return anim;
+	}
+
+	public void setAnim(int anim) {
+		this.anim = anim;
+	}
+
+	public float getAlpha() {
+		return alpha;
+	}
+
+	public void setAlpha(float alpha) {
+		this.alpha = alpha;
+	}
+
+	public float getAlpha1() {
+		return alpha1;
+	}
+
+	public void setAlpha1(float alpha1) {
+		this.alpha1 = alpha1;
+	}
+
+	public boolean isLevelflag() {
+		return levelflag;
+	}
+
+	public void setLevelflag(boolean levelflag) {
+		this.levelflag = levelflag;
+	}
+
 	public void init()//all variables declared above are initialized here
 	{
 		scr=new int[rows][cols];
@@ -375,7 +640,7 @@ class GamePane extends JComponent implements ActionListener
 		if(scr[i][j]>0)			//for all color puyos
 		{
 			count=1;
-			tetris=new Node(i,j);//create a node for puyo 
+			tetris=new NodeMod(i,j);//create a node for puyo
 			chkForTetris(i,j);	//check that node attached to the tetris puyos of same color
 			if(count>=4)		//if tetris forms 
 			{
@@ -435,13 +700,13 @@ class GamePane extends JComponent implements ActionListener
 	}
 	public void addToTetris(int x,int y)//adding another node to the present tetris
 	{
-		tetris.setNext(new Node(x,y));
+		tetris.setNext(new NodeMod(x,y));
 		tetris.getNext().setPrev(tetris);//It is totally the linked list concept used here
 		tetris=tetris.getNext();
 	}
 	public boolean existsInTetris(int x,int y)//comparing with the all the nodes in present tetris 
 	{										//that it is already exists or not
-		Node n=tetris;
+		NodeMod n=tetris;
 		while(n!=null)
 		{
 			if(n.getX()==x && n.getY()==y)
@@ -452,7 +717,7 @@ class GamePane extends JComponent implements ActionListener
 	}
 	public void removeAllTetris()
 	{
-		Node n=tetris;
+		NodeMod n=tetris;
 		while(n!=null)
 		{
 			scr[n.getX()][n.getY()]=0;	//removing puyos which are in tetris
@@ -744,22 +1009,136 @@ class GamePane extends JComponent implements ActionListener
 			g2.drawString("  Press <Escape> to exit the Game",len/2,(rows+2)*len/2);
 			g2.drawString(" Press <Enter> to restart the Game",len/2,(rows+3)*len/2);
 		}
-	}		
+	}
+
+	public boolean equals(Object object) {
+		if (this == object) return true;
+		if (!(object instanceof GamePane)) return false;
+		if (!super.equals(object)) return false;
+
+		GamePane gamePane = (GamePane) object;
+
+		if (rot != gamePane.rot) return false;
+		if (len != gamePane.len) return false;
+		if (reached != gamePane.reached) return false;
+		if (count != gamePane.count) return false;
+		if (started != gamePane.started) return false;
+		if (gameOver != gamePane.gameOver) return false;
+		if (paused != gamePane.paused) return false;
+		if (a != gamePane.a) return false;
+		if (b != gamePane.b) return false;
+		if (level != gamePane.level) return false;
+		if (score != gamePane.score) return false;
+		if (pieces != gamePane.pieces) return false;
+		if (removed_puyos != gamePane.removed_puyos) return false;
+		if (minscore != gamePane.minscore) return false;
+		if (anim != gamePane.anim) return false;
+		if (Float.compare(gamePane.alpha, alpha) != 0) return false;
+		if (Float.compare(gamePane.alpha1, alpha1) != 0) return false;
+		if (levelflag != gamePane.levelflag) return false;
+		if (tetris != null ? !tetris.equals(gamePane.tetris) : gamePane.tetris != null) return false;
+		if (timer != null ? !timer.equals(gamePane.timer) : gamePane.timer != null) return false;
+		if (timer1 != null ? !timer1.equals(gamePane.timer1) : gamePane.timer1 != null) return false;
+		if (timer2 != null ? !timer2.equals(gamePane.timer2) : gamePane.timer2 != null) return false;
+		if (anim_timer != null ? !anim_timer.equals(gamePane.anim_timer) : gamePane.anim_timer != null) return false;
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!java.util.Arrays.equals(img, gamePane.img)) return false;
+		if (fpipe != null ? !fpipe.equals(gamePane.fpipe) : gamePane.fpipe != null) return false;
+		if (bpipe != null ? !bpipe.equals(gamePane.bpipe) : gamePane.bpipe != null) return false;
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!java.util.Arrays.equals(files, gamePane.files)) return false;
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!java.util.Arrays.equals(clips, gamePane.clips)) return false;
+		if (tk != null ? !tk.equals(gamePane.tk) : gamePane.tk != null) return false;
+		return !(rand != null ? !rand.equals(gamePane.rand) : gamePane.rand != null);
+
+	}
+
+	public int hashCode() {
+		int result = super.hashCode();
+		result = 31 * result + (tetris != null ? tetris.hashCode() : 0);
+		result = 31 * result + (timer != null ? timer.hashCode() : 0);
+		result = 31 * result + (timer1 != null ? timer1.hashCode() : 0);
+		result = 31 * result + (timer2 != null ? timer2.hashCode() : 0);
+		result = 31 * result + (anim_timer != null ? anim_timer.hashCode() : 0);
+		result = 31 * result + (img != null ? java.util.Arrays.hashCode(img) : 0);
+		result = 31 * result + (fpipe != null ? fpipe.hashCode() : 0);
+		result = 31 * result + (bpipe != null ? bpipe.hashCode() : 0);
+		result = 31 * result + (files != null ? java.util.Arrays.hashCode(files) : 0);
+		result = 31 * result + (clips != null ? java.util.Arrays.hashCode(clips) : 0);
+		result = 31 * result + (tk != null ? tk.hashCode() : 0);
+		result = 31 * result + (rand != null ? rand.hashCode() : 0);
+		result = 31 * result + rot;
+		result = 31 * result + len;
+		result = 31 * result + (reached ? 1 : 0);
+		result = 31 * result + count;
+		result = 31 * result + (started ? 1 : 0);
+		result = 31 * result + (gameOver ? 1 : 0);
+		result = 31 * result + (paused ? 1 : 0);
+		result = 31 * result + a;
+		result = 31 * result + b;
+		result = 31 * result + level;
+		result = 31 * result + score;
+		result = 31 * result + pieces;
+		result = 31 * result + removed_puyos;
+		result = 31 * result + minscore;
+		result = 31 * result + anim;
+		result = 31 * result + (alpha != +0.0f ? Float.floatToIntBits(alpha) : 0);
+		result = 31 * result + (alpha1 != +0.0f ? Float.floatToIntBits(alpha1) : 0);
+		result = 31 * result + (levelflag ? 1 : 0);
+		return result;
+	}
+
+	@java.lang.Override
+	public java.lang.String toString() {
+		return "GamePane{" +
+				"tetris=" + tetris +
+				", timer=" + timer +
+				", timer1=" + timer1 +
+				", timer2=" + timer2 +
+				", anim_timer=" + anim_timer +
+				", img=" + java.util.Arrays.toString(img) +
+				", fpipe=" + fpipe +
+				", bpipe=" + bpipe +
+				", files=" + java.util.Arrays.toString(files) +
+				", clips=" + java.util.Arrays.toString(clips) +
+				", tk=" + tk +
+				", rand=" + rand +
+				", rot=" + rot +
+				", len=" + len +
+				", reached=" + reached +
+				", count=" + count +
+				", started=" + started +
+				", gameOver=" + gameOver +
+				", paused=" + paused +
+				", a=" + a +
+				", b=" + b +
+				", level=" + level +
+				", score=" + score +
+				", pieces=" + pieces +
+				", removed_puyos=" + removed_puyos +
+				", minscore=" + minscore +
+				", anim=" + anim +
+				", alpha=" + alpha +
+				", alpha1=" + alpha1 +
+				", levelflag=" + levelflag +
+				'}';
+	}
 }
-class Node
+class NodeMod
 {
 	//linked list is bulilt for the tetris of puyos to store their positions
 	int x,y;
-	Node nextnode;
-	Node prevnode;
-	public Node(int x,int y)
+	NodeMod nextnode;
+	NodeMod prevnode;
+	public NodeMod(int x, int y)
 	{
 		this.x=x;
 		this.y=y;
 		nextnode=null;
 		prevnode=null;
 	}
-	public Node(Node p)
+	public NodeMod(NodeMod p)
 	{
 		x=p.x;
 		y=p.y;
@@ -767,19 +1146,19 @@ class Node
 		prevnode=null;
 	
 	}
-	public void setNext(Node lnode)
+	public void setNext(NodeMod lnode)
 	{
 		nextnode=lnode;
 	}
-	public Node getNext()
+	public NodeMod getNext()
 	{
 		return nextnode;
 	}
-	public void setPrev(Node lnode)
+	public void setPrev(NodeMod lnode)
 	{
 		prevnode=lnode;
 	}
-	public Node getPrev()
+	public NodeMod getPrev()
 	{
 		return prevnode;
 	}
